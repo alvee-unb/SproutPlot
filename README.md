@@ -183,6 +183,20 @@ sources within the date range: plantings (`Plant.DatePlanted`), task due dates,
 and watering history. The frontend renders a month grid with colour-coded
 entries and previous/next navigation.
 
+### Notifications
+
+| Method | Route                              | Auth | Description                                          |
+| ------ | ---------------------------------- | ---- | ---------------------------------------------------- |
+| GET    | `/api/notifications/preferences`   | JWT  | Get the user's notification settings                 |
+| PUT    | `/api/notifications/preferences`   | JWT  | Update settings (email/push toggles, reminder lead days) |
+| POST   | `/api/notifications/send-reminders`| JWT  | Build the task reminder digest and dispatch it       |
+
+Delivery goes through an `INotificationSender` seam. The current implementation
+**logs** the message; real email (e.g. SendGrid) and push (e.g. Azure
+Notification Hubs) providers plug in behind the same interface without touching
+callers. `send-reminders` is designed to be called on demand now and by a
+scheduled job (e.g. an Azure Function) per user later.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
@@ -190,5 +204,6 @@ entries and previous/next navigation.
 - Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded
   types), Weather (Open-Meteo + caching), Watering (events + deterministic
   rain-aware recommendation), Tasks (CRUD + complete/snooze + dashboard),
-  Calendar (aggregated month view).
-- Feature slices to follow: Notifications, then premium AI.
+  Calendar (aggregated month view), Notifications (preferences + reminder
+  dispatch behind a pluggable sender).
+- Feature slices to follow: premium AI.
