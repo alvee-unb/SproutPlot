@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SproutPlot.Application.Common.Interfaces;
+using SproutPlot.Infrastructure.External;
 using SproutPlot.Infrastructure.Identity;
 using SproutPlot.Infrastructure.Persistence;
 using SproutPlot.Infrastructure.Persistence.Repositories;
@@ -45,6 +46,10 @@ public static class DependencyInjection
         services.AddScoped<IGardenRepository, GardenRepository>();
         services.AddScoped<IPlantRepository, PlantRepository>();
         services.AddScoped<IPlantTypeRepository, PlantTypeRepository>();
+        services.AddScoped<IWeatherCacheRepository, WeatherCacheRepository>();
+
+        services.AddHttpClient<IWeatherProvider, OpenMeteoWeatherProvider>(client =>
+            client.Timeout = TimeSpan.FromSeconds(10));
 
         return services;
     }
