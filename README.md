@@ -140,11 +140,26 @@ required) and is cached per rounded coordinate in a `WeatherCache` table with a
 short TTL. The dashboard uses browser geolocation or a city search to pick a
 location.
 
+### Watering
+
+| Method | Route                                          | Auth | Description                                   |
+| ------ | ---------------------------------------------- | ---- | --------------------------------------------- |
+| POST   | `/api/gardens/{gardenId}/waterings`            | JWT  | Record a watering (optionally for one plant)  |
+| GET    | `/api/gardens/{gardenId}/waterings`            | JWT  | Watering history (newest first, paged)        |
+| GET    | `/api/gardens/{gardenId}/watering-recommendation` | JWT | Deterministic "should I water?" guidance   |
+| DELETE | `/api/waterings/{id}`                          | JWT  | Delete a watering record                      |
+
+The recommendation is **deterministic** (no AI): it combines the thirstiest
+plant type in the garden, the season (from the garden's hemisphere), days since
+the last watering, and — when the garden has coordinates — the rain forecast.
+Significant forecast rain defers watering. Gardens carry optional
+`latitude`/`longitude` to enable the rain-aware path.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
   a planned hardening step.
 - Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded
-  types), Weather (Open-Meteo + caching).
-- Feature slices to follow: Watering, Tasks, Calendar, Notifications, then
-  premium AI.
+  types), Weather (Open-Meteo + caching), Watering (events + deterministic
+  rain-aware recommendation).
+- Feature slices to follow: Tasks, Calendar, Notifications, then premium AI.

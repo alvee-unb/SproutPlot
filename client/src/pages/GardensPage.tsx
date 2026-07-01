@@ -43,6 +43,8 @@ export function GardensPage() {
         name: form.name.trim(),
         location: form.location?.trim() || undefined,
         size: form.size?.trim() || undefined,
+        latitude: form.latitude ?? null,
+        longitude: form.longitude ?? null,
         notes: form.notes?.trim() || undefined,
       })
       setForm(emptyForm)
@@ -88,6 +90,11 @@ export function GardensPage() {
         <Input label="Location" value={form.location ?? ''} onChange={(v) => setForm({ ...form, location: v })} />
         <Input label="Size" value={form.size ?? ''} onChange={(v) => setForm({ ...form, size: v })} />
         <Input label="Notes" value={form.notes ?? ''} onChange={(v) => setForm({ ...form, notes: v })} />
+        <NumberInput label="Latitude" value={form.latitude} onChange={(v) => setForm({ ...form, latitude: v })} />
+        <NumberInput label="Longitude" value={form.longitude} onChange={(v) => setForm({ ...form, longitude: v })} />
+        <p className="text-xs text-slate-400 sm:col-span-2">
+          Coordinates are optional — adding them enables rain-aware watering tips.
+        </p>
         <div className="sm:col-span-2">
           <button
             type="submit"
@@ -135,6 +142,8 @@ function GardenCard({
     name: garden.name,
     location: garden.location ?? '',
     size: garden.size ?? '',
+    latitude: garden.latitude ?? undefined,
+    longitude: garden.longitude ?? undefined,
     notes: garden.notes ?? '',
   })
   const [saving, setSaving] = useState(false)
@@ -147,6 +156,8 @@ function GardenCard({
         name: values.name.trim(),
         location: values.location?.trim() || undefined,
         size: values.size?.trim() || undefined,
+        latitude: values.latitude ?? null,
+        longitude: values.longitude ?? null,
         notes: values.notes?.trim() || undefined,
       })
       setEditing(false)
@@ -163,6 +174,8 @@ function GardenCard({
           <Input label="Location" value={values.location ?? ''} onChange={(v) => setValues({ ...values, location: v })} />
           <Input label="Size" value={values.size ?? ''} onChange={(v) => setValues({ ...values, size: v })} />
           <Input label="Notes" value={values.notes ?? ''} onChange={(v) => setValues({ ...values, notes: v })} />
+          <NumberInput label="Latitude" value={values.latitude} onChange={(v) => setValues({ ...values, latitude: v })} />
+          <NumberInput label="Longitude" value={values.longitude} onChange={(v) => setValues({ ...values, longitude: v })} />
           <div className="flex gap-2 sm:col-span-2">
             <button
               type="submit"
@@ -237,6 +250,29 @@ function Input({
         value={value}
         required={required}
         onChange={(e) => onChange(e.target.value)}
+        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
+      />
+    </label>
+  )
+}
+
+function NumberInput({
+  label,
+  value,
+  onChange,
+}: {
+  label: string
+  value?: number | null
+  onChange: (value: number | null) => void
+}) {
+  return (
+    <label className="block">
+      <span className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400">{label}</span>
+      <input
+        type="number"
+        step="any"
+        value={value ?? ''}
+        onChange={(e) => onChange(e.target.value === '' ? null : Number(e.target.value))}
         className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
       />
     </label>
