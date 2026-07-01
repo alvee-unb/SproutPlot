@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import * as gardenService from '../services/gardenService'
 import { ApiError } from '../services/apiClient'
 import type { CreateGardenRequest, Garden } from '../types/garden'
@@ -186,7 +187,12 @@ function GardenCard({
   return (
     <li className="flex items-start justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="min-w-0">
-        <h3 className="font-semibold text-slate-900 dark:text-slate-50">{garden.name}</h3>
+        <Link
+          to={`/gardens/${garden.id}`}
+          className="font-semibold text-slate-900 hover:text-emerald-600 hover:underline dark:text-slate-50 dark:hover:text-emerald-400"
+        >
+          {garden.name}
+        </Link>
         <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
           {[garden.location, garden.size].filter(Boolean).join(' · ') || 'No location or size set'}
         </p>

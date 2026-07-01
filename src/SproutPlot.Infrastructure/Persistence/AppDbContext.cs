@@ -21,6 +21,10 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<Garden> Gardens => Set<Garden>();
 
+    public DbSet<Plant> Plants => Set<Plant>();
+
+    public DbSet<PlantType> PlantTypes => Set<PlantType>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
