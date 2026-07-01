@@ -172,11 +172,23 @@ Task types: Water, Fertilize, Weed, Mulch, Harvest, Prune, Trim, Repot, Pest
 inspection, Disease inspection, Other. The dashboard groups pending tasks due
 within a week into overdue / today / upcoming.
 
+### Calendar
+
+| Method | Route           | Auth | Description                                                    |
+| ------ | --------------- | ---- | -------------------------------------------------------------- |
+| GET    | `/api/calendar` | JWT  | Aggregated events. Query: `from`, `to` (default current month), `gardenId` |
+
+The calendar is a **read model** — no table backs it. It unions three existing
+sources within the date range: plantings (`Plant.DatePlanted`), task due dates,
+and watering history. The frontend renders a month grid with colour-coded
+entries and previous/next navigation.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
   a planned hardening step.
 - Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded
   types), Weather (Open-Meteo + caching), Watering (events + deterministic
-  rain-aware recommendation), Tasks (CRUD + complete/snooze + dashboard).
-- Feature slices to follow: Calendar, Notifications, then premium AI.
+  rain-aware recommendation), Tasks (CRUD + complete/snooze + dashboard),
+  Calendar (aggregated month view).
+- Feature slices to follow: Notifications, then premium AI.
