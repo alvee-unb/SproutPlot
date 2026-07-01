@@ -1,0 +1,6 @@
+@SproutPlot.Api_HostAddress = http://localhost:5268
+
+GET {{SproutPlot.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

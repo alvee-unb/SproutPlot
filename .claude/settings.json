@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "includeCoAuthoredBy": false,
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "permissions": {
+    "allow": [
+      "Bash(dotnet *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(git *)",
+      "Bash(psql *)",
+      "Bash(pg_dump *)",
+      "PowerShell(dotnet *)",
+      "PowerShell(npm *)",
+      "PowerShell(npx *)",
+      "PowerShell(node *)",
+      "PowerShell(git *)",
+      "PowerShell(psql *)",
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit",
+      "Write"
+    ],
+    "ask": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -*)",
+      "Bash(git rebase*)",
+      "Bash(rm -rf*)",
+      "Bash(rm -r*)",
+      "Bash(dotnet ef database drop*)",
+      "Bash(psql * -c \"DROP*)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git reset --hard*)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(dotnet ef database drop*)"
+    ]
+  }
+}

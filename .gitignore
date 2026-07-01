@@ -1,0 +1,37 @@
+# ---- .NET ----
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+.vs/
+project.lock.json
+artifacts/
+
+# ---- EF Core ----
+# (migrations ARE committed; nothing to ignore here by default)
+
+# ---- Node / frontend ----
+node_modules/
+client/dist/
+client/.vite/
+
+# ---- Environment / secrets ----
+.env
+.env.local
+*.local
+appsettings.*.local.json
+
+# ---- Editor / OS ----
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---- Claude Code (keep shared settings.json + launch.json, ignore personal) ----
+.claude/settings.local.json
+
+# ---- Scratch / logs ----
+scratch_*.log
+*.log
