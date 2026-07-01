@@ -155,11 +155,28 @@ the last watering, and — when the garden has coordinates — the rain forecast
 Significant forecast rain defers watering. Gardens carry optional
 `latitude`/`longitude` to enable the rain-aware path.
 
+### Tasks
+
+| Method | Route                              | Auth | Description                                        |
+| ------ | ---------------------------------- | ---- | -------------------------------------------------- |
+| GET    | `/api/tasks`                       | JWT  | Tasks across all gardens. Query: `status`, `dueOnOrBefore`, `sortBy`, `descending`, paging |
+| GET    | `/api/gardens/{gardenId}/tasks`    | JWT  | Tasks in one garden                                |
+| POST   | `/api/gardens/{gardenId}/tasks`    | JWT  | Create a task (optionally targeting a plant)       |
+| GET    | `/api/tasks/{id}`                  | JWT  | Get one task                                       |
+| PUT    | `/api/tasks/{id}`                  | JWT  | Edit a task's details                              |
+| POST   | `/api/tasks/{id}/complete`         | JWT  | Mark complete                                      |
+| POST   | `/api/tasks/{id}/snooze`           | JWT  | Push the due date forward (`{ days }`)             |
+| DELETE | `/api/tasks/{id}`                  | JWT  | Delete a task                                      |
+
+Task types: Water, Fertilize, Weed, Mulch, Harvest, Prune, Trim, Repot, Pest
+inspection, Disease inspection, Other. The dashboard groups pending tasks due
+within a week into overdue / today / upcoming.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
   a planned hardening step.
 - Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded
   types), Weather (Open-Meteo + caching), Watering (events + deterministic
-  rain-aware recommendation).
-- Feature slices to follow: Tasks, Calendar, Notifications, then premium AI.
+  rain-aware recommendation), Tasks (CRUD + complete/snooze + dashboard).
+- Feature slices to follow: Calendar, Notifications, then premium AI.

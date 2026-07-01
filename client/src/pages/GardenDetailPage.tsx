@@ -6,6 +6,7 @@ import * as plantService from '../services/plantService'
 import { ApiError } from '../services/apiClient'
 import type { Garden } from '../types/garden'
 import { WateringPanel } from '../components/WateringPanel'
+import { GardenTasksPanel } from '../components/GardenTasksPanel'
 import { PLANT_STATUSES } from '../types/plant'
 import type { Plant, PlantInput, PlantStatus, PlantType } from '../types/plant'
 
@@ -109,6 +110,8 @@ export function GardenDetailPage() {
       </div>
 
       <WateringPanel gardenId={id} />
+
+      <GardenTasksPanel gardenId={id} plants={plants} />
 
       <PlantForm
         title="Add a plant"

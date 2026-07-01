@@ -48,6 +48,7 @@ public static class DependencyInjection
         services.AddScoped<IPlantTypeRepository, PlantTypeRepository>();
         services.AddScoped<IWeatherCacheRepository, WeatherCacheRepository>();
         services.AddScoped<IWateringRepository, WateringRepository>();
+        services.AddScoped<IGardenTaskRepository, GardenTaskRepository>();
 
         services.AddHttpClient<IWeatherProvider, OpenMeteoWeatherProvider>(client =>
             client.Timeout = TimeSpan.FromSeconds(10));
