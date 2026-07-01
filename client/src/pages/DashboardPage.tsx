@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../features/auth/useAuth'
 import { WeatherCard } from '../components/WeatherCard'
+import { DashboardTasks } from '../components/DashboardTasks'
 
 /**
  * Landing page after sign-in. Shows local weather; today's tasks and plants
@@ -19,6 +20,8 @@ export function DashboardPage() {
       </div>
 
       <WeatherCard />
+
+      <DashboardTasks />
 
       <Link
         to="/gardens"

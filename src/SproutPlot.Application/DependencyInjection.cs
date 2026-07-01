@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using SproutPlot.Application.Common.Interfaces;
 using SproutPlot.Application.Features.Gardens;
 using SproutPlot.Application.Features.Plants;
+using SproutPlot.Application.Features.Tasks;
 using SproutPlot.Application.Features.Watering;
 using SproutPlot.Application.Features.Weather;
 
@@ -24,6 +25,7 @@ public static class DependencyInjection
         services.AddScoped<IPlantTypeService, PlantTypeService>();
         services.AddScoped<IWeatherService, WeatherService>();
         services.AddScoped<IWateringService, WateringService>();
+        services.AddScoped<IGardenTaskService, GardenTaskService>();
 
         return services;
     }

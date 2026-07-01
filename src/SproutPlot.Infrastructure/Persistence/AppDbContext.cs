@@ -29,6 +29,8 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<WateringEvent> WateringEvents => Set<WateringEvent>();
 
+    public DbSet<GardenTask> GardenTasks => Set<GardenTask>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
