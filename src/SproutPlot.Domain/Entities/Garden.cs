@@ -20,6 +20,12 @@ public sealed class Garden : BaseEntity
     /// <summary>Free-text size, e.g. "10 x 4 m" or "3 raised beds".</summary>
     public string? Size { get; set; }
 
+    /// <summary>Optional latitude, enabling weather-aware watering guidance.</summary>
+    public double? Latitude { get; set; }
+
+    /// <summary>Optional longitude, enabling weather-aware watering guidance.</summary>
+    public double? Longitude { get; set; }
+
     /// <summary>Optional notes about the garden.</summary>
     public string? Notes { get; set; }
 }

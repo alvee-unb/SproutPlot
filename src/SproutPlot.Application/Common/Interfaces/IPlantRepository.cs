@@ -1,6 +1,7 @@
 using SproutPlot.Application.Common.Models;
 using SproutPlot.Application.Features.Plants;
 using SproutPlot.Domain.Entities;
+using SproutPlot.Domain.Enums;
 
 namespace SproutPlot.Application.Common.Interfaces;
 
@@ -21,4 +22,9 @@ public interface IPlantRepository
     Task UpdateAsync(Plant plant, CancellationToken cancellationToken = default);
 
     Task DeleteAsync(Plant plant, CancellationToken cancellationToken = default);
+
+    /// <summary>Distinct plant-type categories present among a garden's typed plants.</summary>
+    Task<IReadOnlyList<PlantTypeCategory>> GetDistinctCategoriesInGardenAsync(
+        Guid gardenId,
+        CancellationToken cancellationToken = default);
 }

@@ -9,5 +9,9 @@ public sealed record UpdateGardenRequest
 
     public string? Size { get; init; }
 
+    public double? Latitude { get; init; }
+
+    public double? Longitude { get; init; }
+
     public string? Notes { get; init; }
 }

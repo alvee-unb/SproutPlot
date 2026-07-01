@@ -3,6 +3,8 @@ export interface Garden {
   name: string
   location?: string | null
   size?: string | null
+  latitude?: number | null
+  longitude?: number | null
   notes?: string | null
   createdAtUtc: string
   updatedAtUtc?: string | null
@@ -12,6 +14,8 @@ export interface CreateGardenRequest {
   name: string
   location?: string
   size?: string
+  latitude?: number | null
+  longitude?: number | null
   notes?: string
 }
 

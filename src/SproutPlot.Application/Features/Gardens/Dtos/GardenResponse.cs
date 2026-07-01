@@ -11,6 +11,10 @@ public sealed record GardenResponse
 
     public string? Size { get; init; }
 
+    public double? Latitude { get; init; }
+
+    public double? Longitude { get; init; }
+
     public string? Notes { get; init; }
 
     public required DateTime CreatedAtUtc { get; init; }

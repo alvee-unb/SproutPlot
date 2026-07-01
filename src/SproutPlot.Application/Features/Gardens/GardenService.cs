@@ -57,6 +57,8 @@ public sealed class GardenService : IGardenService
             Name = request.Name.Trim(),
             Location = request.Location?.Trim(),
             Size = request.Size?.Trim(),
+            Latitude = request.Latitude,
+            Longitude = request.Longitude,
             Notes = request.Notes?.Trim(),
         };
 
@@ -79,6 +81,8 @@ public sealed class GardenService : IGardenService
         garden.Name = request.Name.Trim();
         garden.Location = request.Location?.Trim();
         garden.Size = request.Size?.Trim();
+        garden.Latitude = request.Latitude;
+        garden.Longitude = request.Longitude;
         garden.Notes = request.Notes?.Trim();
 
         await _repository.UpdateAsync(garden, cancellationToken);
@@ -103,6 +107,8 @@ public sealed class GardenService : IGardenService
         Name = garden.Name,
         Location = garden.Location,
         Size = garden.Size,
+        Latitude = garden.Latitude,
+        Longitude = garden.Longitude,
         Notes = garden.Notes,
         CreatedAtUtc = garden.CreatedAtUtc,
         UpdatedAtUtc = garden.UpdatedAtUtc,

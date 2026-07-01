@@ -3,6 +3,7 @@ using SproutPlot.Application.Common.Interfaces;
 using SproutPlot.Application.Common.Models;
 using SproutPlot.Application.Features.Plants;
 using SproutPlot.Domain.Entities;
+using SproutPlot.Domain.Enums;
 
 namespace SproutPlot.Infrastructure.Persistence.Repositories;
 
@@ -85,5 +86,17 @@ public sealed class PlantRepository : IPlantRepository
     {
         _db.Plants.Remove(plant);
         await _db.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<IReadOnlyList<PlantTypeCategory>> GetDistinctCategoriesInGardenAsync(
+        Guid gardenId,
+        CancellationToken cancellationToken = default)
+    {
+        return await _db.Plants
+            .AsNoTracking()
+            .Where(p => p.GardenId == gardenId && p.PlantType != null)
+            .Select(p => p.PlantType!.Category)
+            .Distinct()
+            .ToListAsync(cancellationToken);
     }
 }

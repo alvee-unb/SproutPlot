@@ -15,5 +15,7 @@ public sealed class UpdateGardenRequestValidator : AbstractValidator<UpdateGarde
         RuleFor(x => x.Location).MaximumLength(200);
         RuleFor(x => x.Size).MaximumLength(100);
         RuleFor(x => x.Notes).MaximumLength(2000);
+        RuleFor(x => x.Latitude).InclusiveBetween(-90, 90).When(x => x.Latitude.HasValue);
+        RuleFor(x => x.Longitude).InclusiveBetween(-180, 180).When(x => x.Longitude.HasValue);
     }
 }

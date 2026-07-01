@@ -27,6 +27,8 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<WeatherCacheEntry> WeatherCacheEntries => Set<WeatherCacheEntry>();
 
+    public DbSet<WateringEvent> WateringEvents => Set<WateringEvent>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

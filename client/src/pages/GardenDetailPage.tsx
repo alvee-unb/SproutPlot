@@ -5,6 +5,7 @@ import * as gardenService from '../services/gardenService'
 import * as plantService from '../services/plantService'
 import { ApiError } from '../services/apiClient'
 import type { Garden } from '../types/garden'
+import { WateringPanel } from '../components/WateringPanel'
 import { PLANT_STATUSES } from '../types/plant'
 import type { Plant, PlantInput, PlantStatus, PlantType } from '../types/plant'
 
@@ -106,6 +107,8 @@ export function GardenDetailPage() {
           {[garden.location, garden.size].filter(Boolean).join(' · ') || 'No location or size set'}
         </p>
       </div>
+
+      <WateringPanel gardenId={id} />
 
       <PlantForm
         title="Add a plant"

@@ -3,6 +3,7 @@ using SproutPlot.Application.Common.Models;
 using SproutPlot.Application.Features.Plants;
 using SproutPlot.Application.Tests.Features.Gardens;
 using SproutPlot.Domain.Entities;
+using SproutPlot.Domain.Enums;
 
 namespace SproutPlot.Application.Tests.Features.Plants;
 
@@ -57,6 +58,11 @@ internal sealed class FakePlantRepository : IPlantRepository
         _plants.Remove(plant);
         return Task.CompletedTask;
     }
+
+    public Task<IReadOnlyList<PlantTypeCategory>> GetDistinctCategoriesInGardenAsync(
+        Guid gardenId,
+        CancellationToken cancellationToken = default) =>
+        Task.FromResult<IReadOnlyList<PlantTypeCategory>>(Array.Empty<PlantTypeCategory>());
 }
 
 /// <summary>In-memory <see cref="IPlantTypeRepository"/> seeded with a fixed set of ids.</summary>
