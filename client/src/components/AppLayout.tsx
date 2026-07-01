@@ -27,6 +27,9 @@ export function AppLayout() {
             <NavLink to="/calendar" className={linkClass}>
               Calendar
             </NavLink>
+            <NavLink to="/settings" className={linkClass}>
+              Settings
+            </NavLink>
           </nav>
         </div>
         <div className="flex items-center gap-4">

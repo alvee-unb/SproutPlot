@@ -20,6 +20,12 @@ public abstract class ApiControllerBase : ControllerBase
         }
     }
 
+    /// <summary>The authenticated user's email, taken from the JWT email claim.</summary>
+    protected string CurrentUserEmail =>
+        User.FindFirstValue(ClaimTypes.Email)
+        ?? User.FindFirstValue("email")
+        ?? throw new InvalidOperationException("Authenticated user email claim is missing.");
+
     /// <summary>Maps a failed <see cref="Result"/> to the appropriate HTTP response.</summary>
     protected IActionResult FromError(Result result)
     {

@@ -31,6 +31,8 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<GardenTask> GardenTasks => Set<GardenTask>();
 
+    public DbSet<NotificationPreferences> NotificationPreferences => Set<NotificationPreferences>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
