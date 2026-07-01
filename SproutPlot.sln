@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{22EA8073-5206-4FE1-BE67-2F673A4F469D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SproutPlot.Domain", "src\SproutPlot.Domain\SproutPlot.Domain.csproj", "{53E22321-0602-41AF-AB0C-A8839B5228D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SproutPlot.Application", "src\SproutPlot.Application\SproutPlot.Application.csproj", "{8587F112-EB7A-4192-AFBB-FB251D47D788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SproutPlot.Infrastructure", "src\SproutPlot.Infrastructure\SproutPlot.Infrastructure.csproj", "{7611915E-731D-43A1-A85D-F76D71448241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SproutPlot.Api", "src\SproutPlot.Api\SproutPlot.Api.csproj", "{D3772E6E-EAE3-4C8F-BADA-3DB3E0A02106}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{14C48DEE-2EF0-4419-B08E-F063E1C1B81D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SproutPlot.Application.Tests", "tests\SproutPlot.Application.Tests\SproutPlot.Application.Tests.csproj", "{C2309960-C879-4D14-BBCA-1A8CC49E61AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53E22321-0602-41AF-AB0C-A8839B5228D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E22321-0602-41AF-AB0C-A8839B5228D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E22321-0602-41AF-AB0C-A8839B5228D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E22321-0602-41AF-AB0C-A8839B5228D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8587F112-EB7A-4192-AFBB-FB251D47D788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8587F112-EB7A-4192-AFBB-FB251D47D788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8587F112-EB7A-4192-AFBB-FB251D47D788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8587F112-EB7A-4192-AFBB-FB251D47D788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7611915E-731D-43A1-A85D-F76D71448241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7611915E-731D-43A1-A85D-F76D71448241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7611915E-731D-43A1-A85D-F76D71448241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7611915E-731D-43A1-A85D-F76D71448241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3772E6E-EAE3-4C8F-BADA-3DB3E0A02106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3772E6E-EAE3-4C8F-BADA-3DB3E0A02106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3772E6E-EAE3-4C8F-BADA-3DB3E0A02106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3772E6E-EAE3-4C8F-BADA-3DB3E0A02106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2309960-C879-4D14-BBCA-1A8CC49E61AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2309960-C879-4D14-BBCA-1A8CC49E61AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2309960-C879-4D14-BBCA-1A8CC49E61AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2309960-C879-4D14-BBCA-1A8CC49E61AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{53E22321-0602-41AF-AB0C-A8839B5228D8} = {22EA8073-5206-4FE1-BE67-2F673A4F469D}
+		{8587F112-EB7A-4192-AFBB-FB251D47D788} = {22EA8073-5206-4FE1-BE67-2F673A4F469D}
+		{7611915E-731D-43A1-A85D-F76D71448241} = {22EA8073-5206-4FE1-BE67-2F673A4F469D}
+		{D3772E6E-EAE3-4C8F-BADA-3DB3E0A02106} = {22EA8073-5206-4FE1-BE67-2F673A4F469D}
+		{C2309960-C879-4D14-BBCA-1A8CC49E61AB} = {14C48DEE-2EF0-4419-B08E-F063E1C1B81D}
+	EndGlobalSection
+EndGlobal

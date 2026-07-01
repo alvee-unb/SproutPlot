@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Light/dark palette follows the OS preference via Tailwind's `dark:` variant. */
+html {
+  color-scheme: light dark;
+}
