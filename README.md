@@ -114,10 +114,24 @@ dotnet test
 All garden operations are scoped to the authenticated user; accessing another
 user's garden returns 404.
 
+### Plants & plant types
+
+| Method | Route                              | Auth | Description                                  |
+| ------ | ---------------------------------- | ---- | -------------------------------------------- |
+| GET    | `/api/gardens/{gardenId}/plants`   | JWT  | Paged plants in a garden. Query: `page`, `pageSize`, `search`, `status`, `sortBy` (`Name`/`DatePlanted`/`CreatedAt`), `descending` |
+| POST   | `/api/gardens/{gardenId}/plants`   | JWT  | Add a plant to the garden                    |
+| GET    | `/api/plants/{id}`                 | JWT  | Get one plant                                |
+| PUT    | `/api/plants/{id}`                 | JWT  | Update a plant                               |
+| DELETE | `/api/plants/{id}`                 | JWT  | Delete a plant                               |
+| GET    | `/api/plant-types`                 | JWT  | List seeded plant types (`search` optional)  |
+
+Plants are scoped through their parent garden. `PlantType` is shared, seeded
+reference data. Enums (plant status, category) are serialised as strings.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
   a planned hardening step.
-- Delivered slices: Auth foundation, Gardens (CRUD).
-- Feature slices to follow: Plants, Watering, Tasks, Weather, Calendar,
-  Notifications, then premium AI.
+- Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded types).
+- Feature slices to follow: Watering, Tasks, Weather, Calendar, Notifications,
+  then premium AI.

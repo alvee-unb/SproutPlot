@@ -43,6 +43,8 @@ public static class DependencyInjection
         services.AddScoped<IAuthService, AuthService>();
 
         services.AddScoped<IGardenRepository, GardenRepository>();
+        services.AddScoped<IPlantRepository, PlantRepository>();
+        services.AddScoped<IPlantTypeRepository, PlantTypeRepository>();
 
         return services;
     }

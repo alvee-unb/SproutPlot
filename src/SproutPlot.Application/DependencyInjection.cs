@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using SproutPlot.Application.Common.Interfaces;
 using SproutPlot.Application.Features.Gardens;
+using SproutPlot.Application.Features.Plants;
 
 namespace SproutPlot.Application;
 
@@ -14,6 +15,8 @@ public static class DependencyInjection
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         services.AddScoped<IGardenService, GardenService>();
+        services.AddScoped<IPlantService, PlantService>();
+        services.AddScoped<IPlantTypeService, PlantTypeService>();
 
         return services;
     }

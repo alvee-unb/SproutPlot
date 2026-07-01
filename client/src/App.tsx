@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { DashboardPage } from './pages/DashboardPage'
 import { GardensPage } from './pages/GardensPage'
+import { GardenDetailPage } from './pages/GardenDetailPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/gardens" element={<GardensPage />} />
+          <Route path="/gardens/:id" element={<GardenDetailPage />} />
         </Route>
       </Route>
 
