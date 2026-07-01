@@ -91,7 +91,9 @@ npm run dev
 dotnet test
 ```
 
-## API (auth slice)
+## API
+
+### Auth
 
 | Method | Route                | Auth | Description                          |
 | ------ | -------------------- | ---- | ------------------------------------ |
@@ -99,9 +101,23 @@ dotnet test
 | POST   | `/api/auth/login`    | —    | Authenticate, returns a JWT          |
 | GET    | `/api/auth/me`       | JWT  | Current user's id and email          |
 
+### Gardens (owner-scoped)
+
+| Method | Route                | Auth | Description                                   |
+| ------ | -------------------- | ---- | --------------------------------------------- |
+| GET    | `/api/gardens`       | JWT  | Paged list. Query: `page`, `pageSize`, `search`, `sortBy` (`Name`/`CreatedAt`), `descending` |
+| GET    | `/api/gardens/{id}`  | JWT  | Get one garden                                |
+| POST   | `/api/gardens`       | JWT  | Create a garden                               |
+| PUT    | `/api/gardens/{id}`  | JWT  | Update a garden                               |
+| DELETE | `/api/gardens/{id}`  | JWT  | Delete a garden                               |
+
+All garden operations are scoped to the authenticated user; accessing another
+user's garden returns 404.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
   a planned hardening step.
-- Feature slices to follow: Gardens, Plants, Watering, Tasks, Weather, Calendar,
+- Delivered slices: Auth foundation, Gardens (CRUD).
+- Feature slices to follow: Plants, Watering, Tasks, Weather, Calendar,
   Notifications, then premium AI.

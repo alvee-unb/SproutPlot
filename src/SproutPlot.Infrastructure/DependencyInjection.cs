@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SproutPlot.Application.Common.Interfaces;
 using SproutPlot.Infrastructure.Identity;
 using SproutPlot.Infrastructure.Persistence;
+using SproutPlot.Infrastructure.Persistence.Repositories;
 
 namespace SproutPlot.Infrastructure;
 
@@ -40,6 +41,8 @@ public static class DependencyInjection
 
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IAuthService, AuthService>();
+
+        services.AddScoped<IGardenRepository, GardenRepository>();
 
         return services;
     }
