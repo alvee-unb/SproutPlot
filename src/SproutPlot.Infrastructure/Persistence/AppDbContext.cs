@@ -25,6 +25,8 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<PlantType> PlantTypes => Set<PlantType>();
 
+    public DbSet<WeatherCacheEntry> WeatherCacheEntries => Set<WeatherCacheEntry>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

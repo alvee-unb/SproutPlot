@@ -128,10 +128,23 @@ user's garden returns 404.
 Plants are scoped through their parent garden. `PlantType` is shared, seeded
 reference data. Enums (plant status, category) are serialised as strings.
 
+### Weather
+
+| Method | Route                  | Auth | Description                                          |
+| ------ | ---------------------- | ---- | ---------------------------------------------------- |
+| GET    | `/api/weather`         | JWT  | Current conditions + 7-day forecast. Query: `latitude`, `longitude` |
+| GET    | `/api/weather/search`  | JWT  | Geocode a place name to coordinates. Query: `name`   |
+
+Weather comes from the free [Open-Meteo](https://open-meteo.com/) API (no key
+required) and is cached per rounded coordinate in a `WeatherCache` table with a
+short TTL. The dashboard uses browser geolocation or a city search to pick a
+location.
+
 ## Notes / roadmap
 
 - JWT is stored in `localStorage` on the client for now; a refresh-token flow is
   a planned hardening step.
-- Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded types).
-- Feature slices to follow: Watering, Tasks, Weather, Calendar, Notifications,
-  then premium AI.
+- Delivered slices: Auth foundation, Gardens (CRUD), Plants (CRUD + seeded
+  types), Weather (Open-Meteo + caching).
+- Feature slices to follow: Watering, Tasks, Calendar, Notifications, then
+  premium AI.
