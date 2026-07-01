@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using SproutPlot.Application.Common.Interfaces;
+using SproutPlot.Application.Features.Calendar;
 using SproutPlot.Application.Features.Gardens;
 using SproutPlot.Application.Features.Plants;
 using SproutPlot.Application.Features.Tasks;
@@ -26,6 +27,7 @@ public static class DependencyInjection
         services.AddScoped<IWeatherService, WeatherService>();
         services.AddScoped<IWateringService, WateringService>();
         services.AddScoped<IGardenTaskService, GardenTaskService>();
+        services.AddScoped<ICalendarService, CalendarService>();
 
         return services;
     }
